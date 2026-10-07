@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2a0f1e">
+<title>Nosso Quiz 💕</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+  <div id="home" class="card">
+    <h1>💕 Nosso Quiz</h1>
+    <p class="subtitle">Responda algumas perguntas sobre você e descubra seus resultados em diferentes categorias.</p>
+    <h3>Qual é o seu nome?</h3>
+    <input type="text" id="nameInput" placeholder="Digite seu nome" maxlength="40" autocomplete="given-name" enterkeyhint="go">
+    <div class="actions"><button class="btn" onclick="startQuiz()">Começar o quiz</button></div>
+  </div>
+
+  <div id="quiz" class="card hidden">
+    <div class="bar"><i id="bar"></i></div>
+    <div class="progress"><span id="progress"></span><span id="who"></span></div>
+    <div class="category" id="category"></div>
+    <div class="question" id="question"></div>
+    <div class="options" id="options"></div>
+    <div class="actions"><button class="btn" id="nextButton" onclick="nextQuestion()" disabled>Próxima</button></div>
+  </div>
+
+  <div id="individualResult" class="card hidden">
+    <h2>✨ Resultado de <span id="resultName"></span></h2>
+    <p class="subtitle">Estes são os valores obtidos em cada categoria.</p>
+    <div class="rows" id="individualTable"></div>
+
+    <div id="esterSurprise" class="surprise hidden">
+      <button class="btn" id="letterBtn" onclick="openEsterLetter()">💌 Abrir uma surpresa</button>
+      <div id="esterLetter" class="letter hidden">
+        <div class="heart">💌</div>
+        <h3>Ester, eu preciso te contar uma coisa...</h3>
+        <p>Se você chegou até aqui, é porque esse site foi feito pensando em você.</p>
+        <p>Talvez você tenha começado isso achando que era só uma brincadeira para descobrir algumas coisas sobre você. Mas, na verdade, tinha um motivo por trás de tudo.</p>
+        <p>Nesse pouco tempo em que comecei a te conhecer, algumas coisas sobre você ficaram na minha cabeça. Seu jeito, sua inteligência, o fato de você gostar de animais, de filmes... e, claro, o fato de ser uma garota linda e brilhante.</p>
+        <p>Eu poderia simplesmente ter feito um site qualquer.</p>
+        <p>Mas preferi fazer algo que tivesse um significado.</p>
+        <p>Queria encontrar uma maneira diferente de conhecer você melhor. Saber mais sobre seus gostos, seu jeito de pensar e as pequenas coisas que fazem você ser quem é.</p>
+        <p>Porque, quando alguém desperta nossa curiosidade de um jeito diferente, a gente começa a querer conhecer muito mais do que aquilo que aparece por fora.</p>
+        <p>E foi assim que essa ideia começou.</p>
+        <p>Então, Ester, se em algum momento você se perguntou por que eu fiz tudo isso...</p>
+        <p class="big">foi porque você se tornou alguém que eu tive vontade de conhecer melhor. ❤️</p>
+        <p>Espero que você tenha gostado da surpresa.</p>
+        <div class="heart">❤️</div>
+      </div>
+    </div>
+
+    <div class="actions"><button class="btn" id="nextPersonButton" onclick="nextPerson()">Continuar</button></div>
+  </div>
+
+  <div id="secondPerson" class="card hidden">
+    <h2>💕 Agora é a vez da outra pessoa</h2>
+    <p class="subtitle">Digite seu nome para começar.</p>
+    <input type="text" id="secondNameInput" placeholder="Digite seu nome" maxlength="40" autocomplete="given-name" enterkeyhint="go">
+    <div class="actions"><button class="btn" onclick="startSecondQuiz()">Começar quiz</button></div>
+  </div>
+
+  <div id="finalResult" class="card hidden">
+    <h2>💕 Comparação</h2>
+    <p class="subtitle">Veja os valores de cada pessoa lado a lado.</p>
+    <div style="height:18px"></div>
+    <div id="captureArea">
+      <h2><span id="finalName1" class="vs"></span> × <span id="finalName2" style="color:#7b5cff"></span></h2>
+      <div class="cmp" id="finalTable"></div>
+    </div>
+    <div class="actions"><button class="btn" onclick="downloadImage()">📸 Baixar como foto</button></div>
+    <p class="footer-text">Os valores representam apenas as respostas dadas no quiz.</p>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
